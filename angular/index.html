@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html ng-app="taskmvc">
+    <head>
+        <title>Basic TODO list</title>
+        <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+        <link href="css/bootstrap-responsive.min.css" rel="stylesheet" media="screen">
+        <link href="css/angular-ui.min.css" rel="stylesheet" media="screen">
+        <link rel="stylesheet" href="css/app.css" />
+    </head>
+    <!-- Assign the ng-controller namespace to the body  -->
+    <body class='dark' ng-controller='TaskController'>
+        <div class="container">
+            <!-- Assign the ng-submit action to the form container  -->
+            <!-- This basically gets triggered in the $scope.addTask() function  -->
+            <form id="task-form" action="" ng-submit="addTask()">
+                <!-- Angular has a two-way binding system. If you change the  -->
+                <!-- value of the ng-model, it gets broadcasted to all bounded elements.-->
+                <input
+                    class='full-width large'
+                    placeholder="what do you want to do today?"
+                    autofocus
+                    ng-model="newTask"
+                />
+            </form>
+
+            <ul class='tasks' ng-class="{empty: tasks.length == 0}">
+
+                <!-- ng-repeat will populate the list based on the array in your controller -->
+                <li
+                    ng-repeat="task in tasks"
+                    ng-class="{editing: task == editingTask, completed: task.completed}"
+                    >
+                    <input type="checkbox" ng-model="task.completed">
+                    <label
+                        class="title"
+                        ng-click="editTask(task)"
+                        >{{task.title}}</label>
+                    <button class="close" ng-click="removeTask(task)">&times;</button>
+                    <form ng-submit="doneEditing(task)">
+                        <input
+                            task-blur="doneEditing(task)"
+                            task-focus="task == editingTask"
+                            ng-model="task.title">
+                    </form>
+                </li>
+            </ul>
+
+        </div>
+
+        <script src="http://code.jquery.com/jquery-latest.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/angular.js"></script>
+        <script src="js/angular-ui.min.js"></script>
+        <script src="js/angular-ui-ieshiv.min.js"></script>
+        <script type="text/javascript" src='js/app.js'></script>
+    </body>
+</html>

@@ -1,0 +1,180 @@
+body {
+    background: rgb(123, 138, 141);
+    }
+
+.container {
+    box-sizing: border-box;
+    padding: 10px;
+    margin-top: 20px;
+    }
+
+#task-form input {
+    color: #EFFFFF;
+    border-width: 0;
+    border-radius: 3px;
+    background: #313F49;
+    background-image: -webkit-linear-gradient(top, rgba(1, 1, 1, 0.15), transparent 10%);
+    background-image: -moz-linear-gradient(top, rgba(1, 1, 1, 0.15), transparent 10%);
+    background-image: -ms-linear-gradient(top, rgba(1, 1, 1, 0.15), transparent 10%);
+    background-image: -o-linear-gradient(top, rgba(1, 1, 1, 0.15), transparent 10%);
+    border-top: 1px solid rgba(1, 1, 1, 0.1);
+    outline: 1px dotted rgba(1,1,1,0.1);
+}
+
+
+.tasks {
+    display: block;
+    padding: 10px;
+    margin: 0;
+    background: #313F49;
+    border-radius: 5px;
+    box-shadow: 0 2px 3px rgba(1,1,1,0.15) inset;
+}
+
+.tasks.empty {
+    display: none;
+    }
+
+.tasks li {
+    background-image: -webkit-linear-gradient(top, rgb(255, 252, 239), #ECE8D6);
+    background-image: -moz-linear-gradient(top, rgb(255, 252, 239), #ECE8D6);
+    background-image: -ms-linear-gradient(top, rgb(255, 252, 239), #ECE8D6);
+    background-image: -o-linear-gradient(top, rgb(255, 252, 239), #ECE8D6);
+    border: 1px solid #ddd;
+    }
+
+.tasks li {
+    display: block;
+    padding: 10px;
+    margin: 0;
+    font-size: 1.5em;
+}
+
+.tasks li:first-child {
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    }
+
+.tasks li:last-child {
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    }
+
+.tasks li form {
+    display: none;
+    margin: 0;
+    padding: 0;
+    background-color: red;
+    }
+
+.tasks li form input {
+    border-width: 0;
+    display: block;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    outline: 1px dotted rgba(1, 1, 1, 0.1);
+    line-height: inherit;
+}
+
+
+.tasks li input[type=checkbox] {
+    margin: 0 10px 0 0;
+    }
+
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+    .tasks li input[type=checkbox] {
+        border-width: 0;
+        border-radius: 3px;
+        text-align: center;
+        padding: 5px 10px;
+        position: relative;
+        top: -2px;
+        text-shadow: 0 1px 1px white;
+        color: rgba(1,1,1,0.2);
+        font-size: inherit;
+        font-weight: bold;
+        box-shadow: 0 1px rgba(1,1,1,0.15);
+        background-image: -webkit-linear-gradient(top, rgb(255, 252, 239), #ECE8D6);
+        background-image: -moz-linear-gradient(top, rgb(255, 252, 239), #ECE8D6);
+        background-image: -ms-linear-gradient(top, rgb(255, 252, 239), #ECE8D6);
+        background-image: -o-linear-gradient(top, rgb(255, 252, 239), #ECE8D6);
+        border: 1px solid #ddd;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        -ms-appearance: none;
+        -o-appearance: none;
+        -webkit-transition: 400ms;
+        -moz-transition: 400ms;
+        -ms-transition: 400ms;
+        -o-transition: 400ms;
+    }
+}
+
+
+.tasks li input[type=checkbox]:hover {
+    }
+
+.tasks li input[type=checkbox]:checked {
+    color: green;
+    }
+
+.tasks li input[type=checkbox]:before {
+    content: '\2713';
+    }
+
+/** Title **/
+.tasks li .title {
+    display: inline-block;
+    color: #455;
+    text-shadow: 0 1px #eee, 0 2px rgba(1,1,1,0.2);
+    cursor: pointer;
+    }
+
+.tasks li.editing .title,
+.tasks li.editing input[type=checkbox] {
+    display: none;
+    }
+
+.tasks li.editing .close{
+    display: none;
+    }
+
+.tasks li.editing form {
+    display: block;
+    }
+
+.tasks li form input, .tasks li .title {
+    font-size: inherit;
+    }
+
+.tasks li.completed .title {
+    text-decoration: line-through;
+    font-style: italic;
+    text-shadow: none;
+    color: #aaa;
+    }
+
+.tasks li .close {
+    color: red;
+    border: 1px dotted rgba(1,1,1,0.25);
+    padding: 3px 9px;
+    padding-bottom: 9px;
+}
+
+
+input.full-width {
+    width: 100%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    padding: 10px;
+    }
+
+.large {
+    font-size: 2em;
+    line-height: normal;
+    }
+
+
